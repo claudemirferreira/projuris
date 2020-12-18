@@ -31,6 +31,9 @@ public class OrdemServico implements Serializable {
 	private String descricao;
 
 	@Column(nullable = false, length = 400)
+	private String observacao;
+
+	@Column(nullable = false, length = 400)
 	private String tipo;
 
 	@Column(nullable = false, length = 400)
@@ -47,14 +50,31 @@ public class OrdemServico implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_responsavel")
-	@JsonIgnore
+	//@JsonIgnore
 	private Responsavel responsavel;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
-	@JsonIgnore
 	private Cliente cliente;
 
+	public OrdemServico() {}
+
+	public OrdemServico(Integer id, Date dataCadastro, String descricao, String observacao, String tipo, String marca,
+			Date dataConclusao, Status status, Date inicio, Date fim, Responsavel responsavel, Cliente cliente) {
+		super();
+		this.id = id;
+		this.dataCadastro = dataCadastro;
+		this.descricao = descricao;
+		this.observacao = observacao;
+		this.tipo = tipo;
+		this.marca = marca;
+		this.dataConclusao = dataConclusao;
+		this.status = status;
+		this.inicio = inicio;
+		this.fim = fim;
+		this.responsavel = responsavel;
+		this.cliente = cliente;
+	}
 
 	public Integer getId() {
 		return id;
@@ -142,6 +162,14 @@ public class OrdemServico implements Serializable {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	@Override

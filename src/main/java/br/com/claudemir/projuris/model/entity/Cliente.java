@@ -29,6 +29,17 @@ public class Cliente implements Serializable {
 
 	@Column(length = 60)
 	private String email;
+	
+	public Cliente() {}
+
+	public Cliente(Integer id, String nome, String endereco, String telefone, String email) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.email = email;
+	}
 
 	public Integer getId() {
 		return id;

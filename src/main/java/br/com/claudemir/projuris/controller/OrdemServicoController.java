@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.claudemir.projuris.enumerated.Status;
 import br.com.claudemir.projuris.model.entity.OrdemServico;
+import br.com.claudemir.projuris.repository.ClienteRepository;
 import br.com.claudemir.projuris.repository.OrdemServicoRepository;
 import br.com.claudemir.projuris.response.Response;
 import io.swagger.annotations.Api;
@@ -29,6 +30,9 @@ public class OrdemServicoController {
 
 	@Autowired
 	private OrdemServicoRepository repository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
 
 	@GetMapping("{id}")
 	@ApiOperation(value = "pegar ordem de servico por id")
@@ -67,6 +71,7 @@ public class OrdemServicoController {
 			entity.setStatus(Status.ABERTO);
 			response.setData(repository.save(entity));
 		}catch (Exception e) {
+			System.out.println(e.getMessage());
 			response.getErrors().add("Ocorreu um error no sistema");
 		}
 		return ResponseEntity.ok(response);
