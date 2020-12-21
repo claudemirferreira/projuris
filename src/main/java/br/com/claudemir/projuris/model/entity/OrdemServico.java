@@ -24,7 +24,7 @@ public class OrdemServico implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_ordem_ervico")
+	@Column(name = "id_ordem_servico")
 	private Integer id;
 
 	private Date dataCadastro;

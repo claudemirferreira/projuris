@@ -35,6 +35,10 @@ public class ResponsavelOS implements Serializable {
 	@JoinColumn(name = "id_responsavel")
 	private Responsavel responsavel;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_ordem_servico")
+	private OrdemServico ordemServico;
+	
 	public String getObservacao() {
 		return observacao;
 	}

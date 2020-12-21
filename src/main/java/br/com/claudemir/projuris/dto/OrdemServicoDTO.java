@@ -31,8 +31,13 @@ public class OrdemServicoDTO implements Serializable {
 
 	@NotNull(message = "tipo não pode ser nulo") 
 	private Status status;
+	
+	@NotNull(message = "inicio não pode ser nulo") 
+	private Date inicio;
 
-	private ResponsavelDTO responsavel;
+	private Date fim;
+
+	//private ResponsavelDTO responsavel;
 
 	@NotNull(message = "cliente não pode ser nulo") 
 	private ClienteDTO cliente;
@@ -43,7 +48,7 @@ public class OrdemServicoDTO implements Serializable {
 	}
 
 	public OrdemServicoDTO(Integer id, Date dataCadastro, String descricao, String observacao, String tipo,
-			String marca, Date dataConclusao, Status status, Date inicio, Date fim, ResponsavelDTO responsavel,
+			String marca, Date dataConclusao, Status status, Date inicio, Date fim, //ResponsavelDTO responsavel,
 			ClienteDTO cliente) {
 		super();
 		this.id = id;
@@ -54,7 +59,7 @@ public class OrdemServicoDTO implements Serializable {
 		this.marca = marca;
 		this.dataConclusao = dataConclusao;
 		this.status = status;
-		this.responsavel = responsavel;
+		//this.responsavel = responsavel;
 		this.cliente = cliente;
 	}
 
@@ -114,14 +119,6 @@ public class OrdemServicoDTO implements Serializable {
 		this.status = status;
 	}
 
-	public ResponsavelDTO getResponsavel() {
-		return responsavel;
-	}
-
-	public void setResponsavel(ResponsavelDTO responsavel) {
-		this.responsavel = responsavel;
-	}
-
 	public ClienteDTO getCliente() {
 		return cliente;
 	}
@@ -144,6 +141,22 @@ public class OrdemServicoDTO implements Serializable {
 
 	public void setResponsavelOSs(List<ResponsavelOSDTO> responsavelOSs) {
 		ResponsavelOSs = responsavelOSs;
+	}
+
+	public Date getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(Date inicio) {
+		this.inicio = inicio;
+	}
+
+	public Date getFim() {
+		return fim;
+	}
+
+	public void setFim(Date fim) {
+		this.fim = fim;
 	}
 
 }

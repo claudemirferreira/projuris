@@ -17,6 +17,7 @@ public class ResponsavelOSDTO implements Serializable {
 
 	private Date fim;
 
+	@NotNull(message = "Ordem de Servico não pode ser nulo") 
 	private OrdemServicoDTO ordemServico;
 
 	@NotNull(message = "responsavel não pode ser nulo") 
