@@ -2,18 +2,26 @@ package br.com.claudemir.projuris.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
 public class ClienteDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
 
+	@NotNull(message = "nome não pode ser nulo") 
 	private String nome;
 
+	@NotNull(message = "endereco não pode ser nulo") 
 	private String endereco;
 
+	@NotNull(message = "telefone não pode ser nulo") 
 	private String telefone;
 
+	@NotNull(message = "email não pode ser nulo") 
+	@Email(message = "email invalido")
 	private String email;
 
 	public ClienteDTO() {

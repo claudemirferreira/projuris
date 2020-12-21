@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 import br.com.claudemir.projuris.enumerated.Status;
 
 public class OrdemServicoDTO implements Serializable {
@@ -14,20 +16,25 @@ public class OrdemServicoDTO implements Serializable {
 
 	private Date dataCadastro;
 
+	@NotNull(message = "descricao não pode ser nulo") 
 	private String descricao;
 
 	private String observacao;
 
+	@NotNull(message = "tipo não pode ser nulo") 
 	private String tipo;
 
+	@NotNull(message = "tipo não pode ser nulo") 
 	private String marca;
 
 	private Date dataConclusao;
 
+	@NotNull(message = "tipo não pode ser nulo") 
 	private Status status;
 
 	private ResponsavelDTO responsavel;
 
+	@NotNull(message = "cliente não pode ser nulo") 
 	private ClienteDTO cliente;
 
 	private List<ResponsavelOSDTO> ResponsavelOSs;

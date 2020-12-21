@@ -3,6 +3,8 @@ package br.com.claudemir.projuris.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 public class ResponsavelOSDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -17,6 +19,7 @@ public class ResponsavelOSDTO implements Serializable {
 
 	private OrdemServicoDTO ordemServico;
 
+	@NotNull(message = "responsavel não pode ser nulo") 
 	private ResponsavelDTO responsavel;
 
 	public OrdemServicoDTO getOrdemServico() {

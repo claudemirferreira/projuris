@@ -3,12 +3,15 @@ package br.com.claudemir.projuris.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 public class ResponsavelDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
 
+	@NotNull(message = "nome não pode ser nulo") 
 	private String nome;
 
 	private List<ResponsavelOSDTO> responsavelOSs;
