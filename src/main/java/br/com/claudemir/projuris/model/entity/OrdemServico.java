@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.claudemir.projuris.enumerated.Status;
 
 @Entity
+@Table(name = "ordem_servico")
 public class OrdemServico implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -50,7 +52,6 @@ public class OrdemServico implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_responsavel")
-	//@JsonIgnore
 	private Responsavel responsavel;
 	
 	@ManyToOne

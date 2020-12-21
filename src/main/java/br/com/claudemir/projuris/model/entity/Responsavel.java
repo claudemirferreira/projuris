@@ -1,14 +1,18 @@
 package br.com.claudemir.projuris.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "responsavel")
 public class Responsavel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -20,6 +24,9 @@ public class Responsavel implements Serializable {
 
 	@Column(nullable = false, length = 100)
 	private String nome;
+	
+	@OneToMany(mappedBy = "responsavel")
+	private List<ResponsavelOS> responsavelOSs;
 
 	public Integer getId() {
 		return id;
@@ -40,6 +47,17 @@ public class Responsavel implements Serializable {
 	public Responsavel(Integer id, String nome) {
 		this.id = id;
 		this.nome = nome;
+	}
+
+	public Responsavel() {
+	}
+
+	public List<ResponsavelOS> getResponsavelOSs() {
+		return responsavelOSs;
+	}
+
+	public void setResponsavelOSs(List<ResponsavelOS> responsavelOSs) {
+		this.responsavelOSs = responsavelOSs;
 	}
 
 	@Override
