@@ -39,8 +39,6 @@ public class OrdemServico implements Serializable {
 	@Column(nullable = false, length = 400)
 	private String marca;
 
-	private Date dataConclusao;
-
 	private Status status;
 
 	@Column(nullable = false)
@@ -64,7 +62,7 @@ public class OrdemServico implements Serializable {
 	}
 
 	public OrdemServico(Integer id, Date dataCadastro, String descricao, String observacao, String tipo, String marca,
-			Date dataConclusao, Status status, Date inicio, Date fim, Responsavel responsavel, Cliente cliente) {
+			Status status, Date inicio, Date fim, Responsavel responsavel, Cliente cliente) {
 		super();
 		this.id = id;
 		this.dataCadastro = dataCadastro;
@@ -72,7 +70,6 @@ public class OrdemServico implements Serializable {
 		this.observacao = observacao;
 		this.tipo = tipo;
 		this.marca = marca;
-		this.dataConclusao = dataConclusao;
 		this.status = status;
 		this.inicio = inicio;
 		this.fim = fim;
@@ -118,14 +115,6 @@ public class OrdemServico implements Serializable {
 
 	public void setMarca(String marca) {
 		this.marca = marca;
-	}
-
-	public Date getDataConclusao() {
-		return dataConclusao;
-	}
-
-	public void setDataConclusao(Date dataConclusao) {
-		this.dataConclusao = dataConclusao;
 	}
 
 	public Status getStatus() {

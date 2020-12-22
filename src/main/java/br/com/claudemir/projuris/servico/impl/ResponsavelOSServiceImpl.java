@@ -1,6 +1,7 @@
 package br.com.claudemir.projuris.servico.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
@@ -43,6 +44,7 @@ public class ResponsavelOSServiceImpl extends AbstractService<ResponsavelOS, Int
 	public ResponsavelOS fecharResponsavelOs(FecharResponsavelOSDTO dto) {
 		ResponsavelOS entity = repository.findById(dto.getId()).get();
 		entity.setFim(new Date());
+		entity.setStatus(Status.FECHADO);
 		entity.setObservacao(dto.getObservacao());
 		//fechar a OS
 		OrdemServico ordemServico = entity.getOrdemServico();
@@ -51,6 +53,11 @@ public class ResponsavelOSServiceImpl extends AbstractService<ResponsavelOS, Int
 		ordemServico.setStatus(Status.FECHADO);
 		ordemServicoRepository.save(ordemServico);
 		return repository.save(entity);
+	}
+
+	@Override
+	public List<ResponsavelOS> findByStatus( Integer id) {
+		return repository.findByStatus(id);
 	}
 
 }

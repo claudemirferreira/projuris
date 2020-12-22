@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import br.com.claudemir.projuris.enumerated.Status;
 
 @Entity
 @Table(name = "responsavel_os")
@@ -30,6 +33,9 @@ public class ResponsavelOS implements Serializable {
 	private Date inicio;
 	
 	private Date fim;
+	
+	@NotNull(message = "status não pode ser nulo") 
+	private Status status;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_responsavel")
@@ -96,6 +102,14 @@ public class ResponsavelOS implements Serializable {
 
 	public void setOrdemServico(OrdemServico ordemServico) {
 		this.ordemServico = ordemServico;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	@Override

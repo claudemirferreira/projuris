@@ -42,7 +42,6 @@ class COrdemServicoApplicationTests {
 				null, 
 				new Date(), 
 				"Computador com defeito", 
-				null, 
 				"Eletronio", 
 				"DELL", 
 				null, 
