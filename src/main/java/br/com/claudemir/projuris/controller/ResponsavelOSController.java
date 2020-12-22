@@ -20,7 +20,6 @@ import br.com.claudemir.projuris.dto.AlterarStatusDTO;
 import br.com.claudemir.projuris.dto.FecharResponsavelOSDTO;
 import br.com.claudemir.projuris.dto.IncluirResponsavelOSDTO;
 import br.com.claudemir.projuris.dto.ResponsavelOSDTO;
-import br.com.claudemir.projuris.enumerated.Status;
 import br.com.claudemir.projuris.model.entity.ResponsavelOS;
 import br.com.claudemir.projuris.response.Response;
 import br.com.claudemir.projuris.servico.BaseService;
@@ -63,6 +62,7 @@ public class ResponsavelOSController extends AbstractController<ResponsavelOS, I
 			response.setContent(dto);
 			return ResponseEntity.ok(response);
 		} catch (Exception e) {
+			response.getErrors().add(e.getMessage());
 			return ResponseEntity.badRequest().body(response);
 		}
 	}
@@ -96,7 +96,7 @@ public class ResponsavelOSController extends AbstractController<ResponsavelOS, I
 			return ResponseEntity.badRequest().body(response);
 		}
 	}
-	
+
 	@RequestMapping(value = "alterar-status", method = RequestMethod.POST, produces = APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "alterar o status da OS")
 	public ResponseEntity<Response<ResponsavelOSDTO>> alterarStatus(HttpServletResponse resp,

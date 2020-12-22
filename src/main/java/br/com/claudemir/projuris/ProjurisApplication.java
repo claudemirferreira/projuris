@@ -11,6 +11,7 @@ import br.com.claudemir.projuris.enumerated.Status;
 import br.com.claudemir.projuris.model.entity.Cliente;
 import br.com.claudemir.projuris.model.entity.OrdemServico;
 import br.com.claudemir.projuris.model.entity.Responsavel;
+import br.com.claudemir.projuris.model.entity.ResponsavelOS;
 import br.com.claudemir.projuris.servico.ClienteService;
 import br.com.claudemir.projuris.servico.OrdemServicoService;
 import br.com.claudemir.projuris.servico.ResponsavelOsService;
@@ -43,15 +44,16 @@ public class ProjurisApplication {
 		OrdemServico ordemServico = new OrdemServico();
 		ordemServico.setCliente(cliente);
 		ordemServico.setResponsavel(responsavel);
-		ordemServico.setDataCadastro(new Date());
 		ordemServico.setInicio(new Date());
 		ordemServico.setDescricao("Computador não liga");
 		ordemServico.setMarca("DELL");
 		ordemServico.setStatus(Status.ABERTO);
 		ordemServico.setTipo("Informatica");
-
 		ordemServicoService.save(ordemServico);
-
+		
+		ResponsavelOS responsavelOs = new ResponsavelOS(null, null, new Date(), null, Status.ABERTO, ordemServico, responsavel);
+		responsavelOsService.save(responsavelOs);
+		
 	}
 
 }

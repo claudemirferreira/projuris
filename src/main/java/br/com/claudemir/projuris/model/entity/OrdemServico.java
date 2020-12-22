@@ -25,8 +25,6 @@ public class OrdemServico implements Serializable {
 	@Column(name = "id_ordem_servico")
 	private Integer id;
 
-	private Date dataCadastro;
-
 	@Column(nullable = false, length = 400)
 	private String descricao;
 
@@ -65,7 +63,6 @@ public class OrdemServico implements Serializable {
 			Status status, Date inicio, Date fim, Responsavel responsavel, Cliente cliente) {
 		super();
 		this.id = id;
-		this.dataCadastro = dataCadastro;
 		this.descricao = descricao;
 		this.observacao = observacao;
 		this.tipo = tipo;
@@ -83,14 +80,6 @@ public class OrdemServico implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Date getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
 	}
 
 	public String getDescricao() {

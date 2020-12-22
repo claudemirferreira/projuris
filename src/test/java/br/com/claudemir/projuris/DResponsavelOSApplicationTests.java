@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import br.com.claudemir.projuris.enumerated.Status;
 import br.com.claudemir.projuris.model.entity.OrdemServico;
 import br.com.claudemir.projuris.model.entity.Responsavel;
 import br.com.claudemir.projuris.model.entity.ResponsavelOS;
@@ -31,7 +32,7 @@ class DResponsavelOSApplicationTests {
 		Responsavel responsavel = new Responsavel();
 		responsavel.setId(1);
 
-		ResponsavelOS obj = new ResponsavelOS(null, null, new Date(), null, ordemServico, responsavel);
+		ResponsavelOS obj = new ResponsavelOS(null, null, new Date(), null, Status.ABERTO, ordemServico, responsavel);
 		ResponsavelOS found = repo.save(obj);
 		assertThat(found.getId() > 0);
 	}

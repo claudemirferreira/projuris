@@ -47,11 +47,12 @@ public class ResponsavelOS implements Serializable {
 	
 	public ResponsavelOS() {}
 	
-	public ResponsavelOS(Integer id, String observacao, Date inicio, Date fim, OrdemServico ordemServico, Responsavel responsavel) {
+	public ResponsavelOS(Integer id, String observacao, Date inicio, Date fim, Status status, OrdemServico ordemServico, Responsavel responsavel) {
 		this.id = id;
 		this.observacao = observacao;
 		this.inicio = inicio;
 		this.fim = fim;
+		this.status = status;
 		this.ordemServico = ordemServico;
 		this.responsavel = responsavel;
 	}

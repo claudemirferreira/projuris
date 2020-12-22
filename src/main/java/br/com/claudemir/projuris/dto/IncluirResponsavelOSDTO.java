@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
+import br.com.claudemir.projuris.enumerated.Status;
 import br.com.claudemir.projuris.model.entity.OrdemServico;
 import br.com.claudemir.projuris.model.entity.Responsavel;
 import br.com.claudemir.projuris.model.entity.ResponsavelOS;
@@ -13,6 +14,7 @@ public class IncluirResponsavelOSDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@NotNull(message = "observacao não pode ser nulo")
 	private String observacao;
 
 	@NotNull(message = "Ordem de Servico não pode ser nulo")
@@ -21,9 +23,6 @@ public class IncluirResponsavelOSDTO implements Serializable {
 	@NotNull(message = "responsavel de Servico não pode ser nulo")
 	private Integer idResponsavel;
 	
-	@NotNull(message = "fim não pode ser nulo")
-	private Date fim;
-
 	public Integer getIdOrdemServico() {
 		return idOrdemServico;
 	}
@@ -61,6 +60,7 @@ public class IncluirResponsavelOSDTO implements Serializable {
 	public static ResponsavelOS toResponsavelOSEntity(IncluirResponsavelOSDTO dto) {
 		ResponsavelOS entity = new ResponsavelOS();
 		entity.setInicio(new Date());
+		entity.setStatus(Status.ABERTO);
 		entity.setResponsavel(new Responsavel(dto.getIdResponsavel()));
 		entity.setOrdemServico(new OrdemServico(dto.getIdOrdemServico()));		
 		return entity;
