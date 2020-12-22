@@ -28,7 +28,7 @@ public class SwaggerConfig {
 		apiInfoBuilder.title("Generic REST API");
 		apiInfoBuilder.description("Simple REST API Generation");
 		apiInfoBuilder.version("0.0.1-SNAPSHOT");
-		apiInfoBuilder.contact(new Contact("Ferdi Sonmezay", "https://ferdisonmezay.com", "hi@ferdisonmezay.com"));
+		apiInfoBuilder.contact(new Contact("Claudemir Ramos Ferreira", "https://ferdisonmezay.com", "claudemirramosferreira@gmail.com"));
 		apiInfoBuilder.license("GNU GENERAL PUBLIC LICENSE, Version 3");
 		apiInfoBuilder.licenseUrl("https://www.gnu.org/licenses/gpl-3.0.en.html");
 
