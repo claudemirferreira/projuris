@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import br.com.claudemir.projuris.enumerated.Status;
 
 @Entity
@@ -42,23 +40,28 @@ public class OrdemServico implements Serializable {
 	private String marca;
 
 	private Date dataConclusao;
-	
+
 	private Status status;
-	
+
 	@Column(nullable = false)
 	private Date inicio;
 
 	private Date fim;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_responsavel")
 	private Responsavel responsavel;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
 
-	public OrdemServico() {}
+	public OrdemServico() {
+	}
+
+	public OrdemServico(Integer id) {
+		this.id = id;
+	}
 
 	public OrdemServico(Integer id, Date dataCadastro, String descricao, String observacao, String tipo, String marca,
 			Date dataConclusao, Status status, Date inicio, Date fim, Responsavel responsavel, Cliente cliente) {

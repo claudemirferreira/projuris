@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.claudemir.projuris.itil.ObjectMapperUtils;
 import br.com.claudemir.projuris.response.Response;
 import br.com.claudemir.projuris.servico.BaseService;
+import io.swagger.annotations.ApiOperation;
 
 /**
  *
@@ -37,6 +38,7 @@ public abstract class AbstractController<T, ID, DTO> {
 	protected abstract Class<T> getEntityClass();
 
 	@RequestMapping(value = "", method = GET, produces = APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "lista todos os registros")
 	public ResponseEntity<Response<List<DTO>>> find() {
 		Response<List<DTO>> response = new Response<List<DTO>>();
 		response.setContent(toDto(getService().findAll()));
@@ -44,6 +46,7 @@ public abstract class AbstractController<T, ID, DTO> {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "pegar registro por id")
 	public ResponseEntity<Response<DTO>> findById(@PathVariable("id") ID id) {
 		Response<DTO> response = new Response<DTO>();
 		try {
@@ -57,6 +60,7 @@ public abstract class AbstractController<T, ID, DTO> {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "excluir registro por id")
 	public ResponseEntity<?> deleteById(@PathVariable("id") ID id) {
 		try {
 			getService().deleteById(id);
@@ -67,6 +71,7 @@ public abstract class AbstractController<T, ID, DTO> {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST, produces = APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "incluir um registro")
 	public ResponseEntity<Response<DTO>> save(HttpServletResponse resp, @Valid @RequestBody DTO obj) {
 
 		Response<DTO> response = new Response<DTO>();

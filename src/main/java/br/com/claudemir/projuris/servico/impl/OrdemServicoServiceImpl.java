@@ -23,4 +23,10 @@ public class OrdemServicoServiceImpl extends AbstractService<OrdemServico, Integ
 		return repository;
 	}
 
+	@Override
+	public OrdemServico fecharOrdemServicoService(OrdemServico entity) {
+		return repository.save(entity);
+	}
+	
+
 }

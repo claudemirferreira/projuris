@@ -90,6 +90,14 @@ public class ResponsavelOS implements Serializable {
 		this.responsavel = responsavel;
 	}
 
+	public OrdemServico getOrdemServico() {
+		return ordemServico;
+	}
+
+	public void setOrdemServico(OrdemServico ordemServico) {
+		this.ordemServico = ordemServico;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
