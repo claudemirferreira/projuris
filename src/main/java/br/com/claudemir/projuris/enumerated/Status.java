@@ -1,6 +1,7 @@
 package br.com.claudemir.projuris.enumerated;
 
 public enum Status {
+	
 	ABERTO("A"), FECHADO("F"), AGUARDANDO_PECA("P"), CANCELADO("C");
 
     private String code;

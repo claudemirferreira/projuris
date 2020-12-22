@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import br.com.claudemir.projuris.dto.AlterarStatusDTO;
 import br.com.claudemir.projuris.dto.FecharResponsavelOSDTO;
 import br.com.claudemir.projuris.dto.IncluirResponsavelOSDTO;
 import br.com.claudemir.projuris.enumerated.Status;
@@ -58,6 +59,22 @@ public class ResponsavelOSServiceImpl extends AbstractService<ResponsavelOS, Int
 	@Override
 	public List<ResponsavelOS> findByStatus( Integer id) {
 		return repository.findByStatus(id);
+	}
+
+	@Override
+	public ResponsavelOS alterarStatus(AlterarStatusDTO dto) {
+		System.out.println(dto.getId());
+		ResponsavelOS entity = repository.findById(dto.getId()).get();
+		entity.setFim(new Date());
+		entity.setStatus(Status.FECHADO);
+		repository.save(entity);
+		
+		entity.setId(null);
+		entity.setInicio(new Date());
+		entity.setStatus(dto.getStatus());
+		repository.save(entity);
+		
+		return repository.save(entity);
 	}
 
 }

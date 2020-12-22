@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.claudemir.projuris.dto.AlterarStatusDTO;
 import br.com.claudemir.projuris.dto.FecharResponsavelOSDTO;
 import br.com.claudemir.projuris.dto.IncluirResponsavelOSDTO;
 import br.com.claudemir.projuris.dto.ResponsavelOSDTO;
@@ -92,6 +93,21 @@ public class ResponsavelOSController extends AbstractController<ResponsavelOS, I
 			response.setContent(dto);
 			return ResponseEntity.ok(response);
 		} catch (Exception e) {
+			return ResponseEntity.badRequest().body(response);
+		}
+	}
+	
+	@RequestMapping(value = "alterar-status", method = RequestMethod.POST, produces = APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "alterar o status da OS")
+	public ResponseEntity<Response<ResponsavelOSDTO>> alterarStatus(HttpServletResponse resp,
+			@Valid @RequestBody AlterarStatusDTO obj) {
+		Response<ResponsavelOSDTO> response = new Response<ResponsavelOSDTO>();
+		try {
+			ResponsavelOSDTO dto = toDto(service.alterarStatus(obj));
+			response.setContent(dto);
+			return ResponseEntity.ok(response);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			return ResponseEntity.badRequest().body(response);
 		}
 	}
