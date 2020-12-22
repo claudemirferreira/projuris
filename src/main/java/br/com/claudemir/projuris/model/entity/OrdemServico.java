@@ -32,10 +32,10 @@ public class OrdemServico implements Serializable {
 	@Column(nullable = false, length = 400)
 	private String descricao;
 
-	@Column(nullable = false, length = 400)
+	@Column(length = 400)
 	private String observacao;
 
-	@Column(nullable = false, length = 400)
+	@Column(length = 400)
 	private String tipo;
 
 	@Column(nullable = false, length = 400)

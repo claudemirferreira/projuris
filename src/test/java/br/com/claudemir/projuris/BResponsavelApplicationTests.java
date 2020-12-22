@@ -6,25 +6,23 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import br.com.claudemir.projuris.model.entity.Cliente;
-import br.com.claudemir.projuris.repository.ClienteRepository;
+import br.com.claudemir.projuris.model.entity.Responsavel;
+import br.com.claudemir.projuris.repository.ResponsavelRepository;
 
 @SpringBootTest
-class ClienteApplicationTests {
+class BResponsavelApplicationTests {
 
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private ResponsavelRepository repo;
 
 	@Test
 	void contextLoads() {
-
 	}
 
 	@Test
-	public void testIncluirCliente() {
-		Cliente obj = new Cliente(null, "João Ferreira", "rua 01", "999999999", "claudemir@gmail.com");
-		Cliente found = clienteRepository.save(obj);
+	public void testIncluirResponsavel() {
+		Responsavel obj = new Responsavel(null, "JOÃO LEVI FERREIRA");
+		Responsavel found = repo.save(new Responsavel(null, "JOÃO LEVI FERREIRA"));
 		assertThat(found.getNome()).isEqualTo(obj.getNome());
 	}
-
 }

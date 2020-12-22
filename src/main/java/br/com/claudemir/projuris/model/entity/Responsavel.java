@@ -25,8 +25,8 @@ public class Responsavel implements Serializable {
 	@Column(nullable = false, length = 100)
 	private String nome;
 	
-	@OneToMany(mappedBy = "responsavel")
-	private List<ResponsavelOS> responsavelOSs;
+//	@OneToMany(mappedBy = "responsavel")
+//	private List<ResponsavelOS> responsavelOSs;
 
 	public Integer getId() {
 		return id;
@@ -52,13 +52,13 @@ public class Responsavel implements Serializable {
 	public Responsavel() {
 	}
 
-	public List<ResponsavelOS> getResponsavelOSs() {
-		return responsavelOSs;
-	}
-
-	public void setResponsavelOSs(List<ResponsavelOS> responsavelOSs) {
-		this.responsavelOSs = responsavelOSs;
-	}
+//	public List<ResponsavelOS> getResponsavelOSs() {
+//		return responsavelOSs;
+//	}
+//
+//	public void setResponsavelOSs(List<ResponsavelOS> responsavelOSs) {
+//		this.responsavelOSs = responsavelOSs;
+//	}
 
 	@Override
 	public int hashCode() {

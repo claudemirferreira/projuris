@@ -39,6 +39,17 @@ public class ResponsavelOS implements Serializable {
 	@JoinColumn(name = "id_ordem_servico")
 	private OrdemServico ordemServico;
 	
+	public ResponsavelOS() {}
+	
+	public ResponsavelOS(Integer id, String observacao, Date inicio, Date fim, OrdemServico ordemServico, Responsavel responsavel) {
+		this.id = id;
+		this.observacao = observacao;
+		this.inicio = inicio;
+		this.fim = fim;
+		this.ordemServico = ordemServico;
+		this.responsavel = responsavel;
+	}
+
 	public String getObservacao() {
 		return observacao;
 	}

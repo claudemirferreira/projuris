@@ -17,7 +17,7 @@ import br.com.claudemir.projuris.repository.OrdemServicoRepository;
 import br.com.claudemir.projuris.repository.ResponsavelRepository;
 
 @SpringBootTest
-class OordemServicoApplicationTests {
+class COrdemServicoApplicationTests {
 	
 
 	@Autowired
@@ -47,7 +47,7 @@ class OordemServicoApplicationTests {
 				"DELL", 
 				null, 
 				Status.ABERTO, 
-				null, 
+				new Date(), 
 				null, 
 				responsavel, 
 				cliente);
